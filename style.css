@@ -1,8 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
-html {
+/* html {
     box-sizing: border-box;
-}
+} */
 
 body {
     margin: 0;
@@ -16,19 +16,19 @@ body {
 }
 
 .player-container {
-    height: 500px;
-    width: 400px;
+    height: 60%;
+    width: 90%;
     background: #e9e9e9;
     border-radius: 20px;
     box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.3);
 }
 
 .img-container {
-    height: 300px;
-    width: 300px;
+    height: 100%;
+    width: 90%;
     position: relative;
-    top: -50px;
-    left: 50px;
+    top: -20px;
+    margin: auto;
     
 }
 
@@ -38,6 +38,7 @@ body {
     object-fit: cover;
     border-radius: 20px;
     box-shadow: 0 15px 30px 5px rgba(0, 0, 0, 0.7);
+    min-height: 300px;
 }
 
 h2 {
@@ -51,7 +52,7 @@ h3 {
     background: #fff;
     border-radius: 5px;
     cursor: pointer;
-    margin: 40px 20px;
+    margin: 40px 17px;
     height: 5px;
     width: 90%;
 }
@@ -66,23 +67,32 @@ h3 {
 
 .duration-wrapper {
     position: relative;
-    top: -25px;
+    top: -65px;
     text-align: center;
     display: flex;
     justify-content: space-between;
+    margin:0px 18px;
 }
 
 .player-controls {
     position: relative;
-    top: -20px;
-    left: 120px;
-    width: 200px;
+    top: -35px;
+    width: 100%;
+}
+.control-essential {
+    position: relative;
+    
+}
+.control-player {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 20px;
 }
 
 .fa-solid{
     font-size: 30px;
     color: #7e7e7e;
-    margin-right: 30px;
     cursor: pointer;
     user-select: none;
 }
@@ -90,8 +100,28 @@ h3 {
 .fa-solid:hover{
     filter: brightness(60%);
 }
+
 .main-button{
     font-size: 45px;
     position: relative;
     top: 3px;
 }
+
+/* .volume-controls{
+    position: relative;
+    top: -20px;
+    left: 120px;
+    width: 200px;
+}
+
+#volumeValue {
+    display: none;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #333;
+    color: #fff;
+    padding: 5px;
+    border-radius: 5px;
+} */

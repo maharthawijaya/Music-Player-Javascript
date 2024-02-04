@@ -9,6 +9,8 @@ const progressContainer = document.getElementById('progress-container');
 const progress = document.getElementById('progress');
 const currentTimeElement = document.getElementById('current-time');
 const durationElement = document.getElementById('duration');
+const repeatButton = document.getElementById('repeat');
+const shuffleButton = document.getElementById('shuffle');
 
 // Music
 const songs = [
@@ -30,6 +32,8 @@ const songs = [
 ];
 
 let isPlaying = false;
+let repeatOnce = false;
+let isShuffle = false;
 
 function PlayMusic(){
     isPlaying = true
@@ -57,13 +61,42 @@ function LoadMusic(song){
 }
 
 function NextSong(){
-    songIndex++;
-    if(songIndex > songs.length - 1){
-        songIndex = 0;
+    if(isShuffle){
+        console.log(songIndex);
+        songIndex = Math.floor(Math.random() * songs.length);
+        console.log('After Update : ' + songIndex);
+    }
+    else{
+        songIndex++;
+        if(songIndex > songs.length - 1){
+            songIndex = 0;
+        }
     }
     LoadMusic(songs[songIndex]);
     PlayMusic();
 }
+
+function CheckRepeat(){
+    if(repeatOnce){
+        repeatOnce = false;
+        LoadMusic(songs[songIndex]);
+        PlayMusic();
+        return;
+    }
+    else{
+        NextSong();
+    }
+}
+
+function SetRepeatOnce() {
+    repeatOnce = !repeatOnce;
+    repeatButton.classList.toggle('active', repeatOnce);
+}
+function SetShuffleOn(){
+    isShuffle = !isShuffle;
+    shuffleButton.classList.toggle('active', isShuffle);
+}
+
 function PreviousSong(){
     songIndex--;
     if(songIndex < 0){
@@ -110,9 +143,13 @@ function SetProgressBar(e){
 
 }
 
-LoadMusic(songs[songIndex]);
 
+music.addEventListener('ended', CheckRepeat);
 previousButton.addEventListener('click', PreviousSong);
 nextButton.addEventListener('click', NextSong);
 music.addEventListener('timeupdate', UpdateProgressBar);
+repeatButton.addEventListener('click', SetRepeatOnce);
+shuffleButton.addEventListener('click', SetShuffleOn)
 progressContainer.addEventListener('click', SetProgressBar);
+
+LoadMusic(songs[songIndex]);

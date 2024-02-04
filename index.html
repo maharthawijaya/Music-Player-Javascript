@@ -17,16 +17,27 @@
         <audio src="music/pokemon-1.mp3"></audio>
         <div class="progress-container" id="progress-container">
             <div class="progress" id="progress"></div>
-            <div class="duration-wrapper">
+        </div>
+        <div class="duration-wrapper">
                 <span class="current-time" id="current-time">0:00</span>
                 <span class="duration" id="duration">17:10</span>
-            </div>
         </div>
         <div class="player-controls">
-            <i class="fa-solid fa-backward" id="prev" title="Previous"></i>
-            <i class="fa-solid fa-play" id="main-button" title="Play"></i>
-            <i class="fa-solid fa-forward" id="next" title="Next"></i>
+            <div class="control-essential" id="control-essential">
+                <div class="control-player" id="control-player">
+                    <i class="fa-solid fa-repeat" id="repeat" title="Repeat"></i>
+                    <i class="fa-solid fa-backward" id="prev" title="Previous"></i>
+                    <i class="fa-solid fa-play" id="main-button" title="Play"></i>
+                    <i class="fa-solid fa-forward" id="next" title="Next"></i>
+                    <i class="fa-solid fa-shuffle" id="shuffle" title="Shuffle"></i>
+                </div>
+            </div>
         </div>
+        <!-- <div class="volume-controls" id="volume-controls">
+            <i class="fa-solid fa-volume-high" id="volume"></i>
+            <input type="range" id="volumeSlider" min="0" max="100" step="1" value="1" />
+            <span id="volumeValue">100</span>
+        </div> -->
     </div>
     <script src="script.js"></script>
 </body>
